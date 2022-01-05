@@ -12,7 +12,6 @@
                     placeholder="Buscar pais ..."
                     [(ngModel)] = "terminoBusqueda"
                     >
-
         </form>
     </div>
 </div>
@@ -20,15 +19,15 @@
 
 <!-- Mensajes de aleta -->
 <hr>
-<div class="alert alert-danger" role="alert">
-  No se encontro nada con el termino ABCASD
+<div *ngIf="errorRespuesta" class="alert alert-danger" role="alert">
+  No se encontro nada con el termino "{{terminoBusqueda}}"
   <p></p>
   <p class="mb-0"></p>
 </div>
 
 
 <!-- Tabla -->
-<div class="row">
+<div *ngIf="!errorRespuesta"  class="row">
     <div class="col">
         <table class="table table-hover">
             <thead>
