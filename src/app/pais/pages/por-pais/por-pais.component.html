@@ -1,1 +1,55 @@
-<p>por-pais works!</p>
+<h3>Por Pais</h3>
+<hr>
+
+<!-- Formulario -->
+<div class="row">
+    <div class="col">
+        <form  autocapitalize="off"
+                (ngSubmit) = "buscar($event)">
+            <input type="text"
+                    name="termino"
+                    class="form-control"
+                    placeholder="Buscar pais ..."
+                    [(ngModel)] = "terminoBusqueda"
+                    >
+
+        </form>
+    </div>
+</div>
+
+
+<!-- Mensajes de aleta -->
+<hr>
+<div class="alert alert-danger" role="alert">
+  No se encontro nada con el termino ABCASD
+  <p></p>
+  <p class="mb-0"></p>
+</div>
+
+
+<!-- Tabla -->
+<div class="row">
+    <div class="col">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Bandera</th>
+                    <th>Nombre</th>
+                    <th>Poblacion</th>
+                    <th>Enlace</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Bandera</td>
+                    <td>Nombre</td>
+                    <td>123131234</td>
+                    <td><a href="">Ver mas ...</a></td>            
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
