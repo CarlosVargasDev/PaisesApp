@@ -18,9 +18,9 @@ export class PaisService {
     const url = `${this.apiUrl}/capital/${terminoBusqueda}`;
     return this.httpClient.get<Country[]>(url);
   }
-  getPaisPorCodigoCCa2(terminoBusqueda: string):Observable<Country>{
+  getPaisPorCodigoCCa2(terminoBusqueda: string):Observable<Country[]>{
     const url = `${this.apiUrl}/alpha/${terminoBusqueda}`;
-    return this.httpClient.get<Country>(url);
+    return this.httpClient.get<Country[]>(url);
   }
 
 
