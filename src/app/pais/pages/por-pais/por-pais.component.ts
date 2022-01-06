@@ -13,8 +13,9 @@ export class PorPaisComponent {
   public errorRespuesta: boolean = false; 
   public lista_paises: Country[] = [];
 
-  buscar(evento:any){
+  buscar(termino:string){
     this.errorRespuesta = false;
+    this.terminoBusqueda = termino;
 
     this.paisService.buscarPais(this.terminoBusqueda)
       .subscribe((paises:Country[])=>{
@@ -26,7 +27,11 @@ export class PorPaisComponent {
       });
   }
 
-  
+  sugerencias(termino: string){
+    this.errorRespuesta = false;
+    //TODO: crear sugerencias
+  }
+
   constructor(private paisService:PaisService){
 
   }

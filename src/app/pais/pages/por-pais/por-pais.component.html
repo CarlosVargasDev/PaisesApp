@@ -4,15 +4,10 @@
 <!-- Formulario -->
 <div class="row">
     <div class="col">
-        <form  autocapitalize="off"
-                (ngSubmit) = "buscar($event)">
-            <input type="text"
-                    name="termino"
-                    class="form-control"
-                    placeholder="Buscar pais ..."
-                    [(ngModel)] = "terminoBusqueda"
-                    >
-        </form>
+        <app-pais-buscador 
+                (onEnter)="buscar($event)"
+                (onDebounce)= "sugerencias($event)"
+                ></app-pais-buscador>
     </div>
 </div>
 
@@ -29,26 +24,7 @@
 <!-- Tabla -->
 <div *ngIf="!errorRespuesta"  class="row">
     <div class="col">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Nombre</th>
-                    <th>Bandera</th>
-                    <th>Poblacion</th>
-                    <th>Enlace</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let pais of lista_paises; let i = index;">
-                    <td>{{i+1}}</td>
-                    <td>{{pais.name.common}}</td>
-                    <td>{{pais.flag}}</td>
-                    <td>{{pais.population}}</td>
-                    <td><a [routerLink]="['/pais',pais.cca2]" routerLinkActive="router-link-active"  routerLinkActive="router-link-active" >{{pais.name.official}}</a></td>
-                </tr>
-            </tbody>
-        </table>
+        <app-pais-tabla [data]="lista_paises" ></app-pais-tabla>
     </div>
 
 </div>
