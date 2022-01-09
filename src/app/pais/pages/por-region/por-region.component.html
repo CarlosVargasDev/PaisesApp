@@ -1,26 +1,27 @@
-<h3>Buscar por region <small>{{regionActiva | titlecase}}</small></h3>
-<br>
+<div class = "animate__animated animate__backInDown">
 
-<h5>Seleccione la region</h5>
+    <h3>Buscar por region <small>{{regionActiva | titlecase}}</small></h3>
+    <br>
 
-<div class="row">
-    <div class="col">
-        <button type="button"
-                class="btn"
-                *ngFor="let region of regiones"
-                [class] = "getClasesCssRegion(region)"
-                (click)= "activarRegion(region)">
-            {{region | titlecase}}
-        </button>
-    </div>
-</div>
+    <h5>Seleccione la region</h5>
 
-
-
-<!-- Tabla -->
-<div *ngIf="!errorRespuesta"  class="row">
-    <div class="col">
-        <app-pais-tabla [data]="listaPaises"></app-pais-tabla>
+    <div class="row">
+        <div class="col">
+            <button type="button"
+                    class="btn"
+                    *ngFor="let region of regiones"
+                    [class] = "getClasesCssRegion(region)"
+                    (click)= "activarRegion(region)">
+                {{region | titlecase}}
+            </button>
+        </div>
     </div>
 
+    <!-- Tabla -->
+    <div *ngIf="listaPaises.length!=0"  class="row">
+        <div class="col">
+            <app-pais-tabla [data]="listaPaises"></app-pais-tabla>
+        </div>
+
+    </div>
 </div>

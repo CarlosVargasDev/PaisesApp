@@ -1,31 +1,38 @@
-<h3>Por Capital</h3>
-<hr>
-
-<!-- Formulario -->
-<div class="row">
-    <div class="col">
-        <app-pais-buscador 
-                (onEnter)="buscar($event)"
-                (onDebounce)= "sugerencias($event)"
-                placeholder="Buscar por nombre capital ..."
-                ></app-pais-buscador>
-    </div>
-</div>
-
-
-<!-- Mensajes de aleta -->
-<hr>
-<div *ngIf="errorRespuesta" class="alert alert-danger" role="alert">
-  No se encontro nada con el termino "{{terminoBusqueda}}"
-  <p></p>
-  <p class="mb-0"></p>
-</div>
-
-
-<!-- Tabla -->
-<div *ngIf="!errorRespuesta"  class="row">
-    <div class="col">
-        <app-pais-tabla [data]="lista_paises" ></app-pais-tabla>
+<div class = "animate__animated animate__backInDown">
+    <h3>Por Capital</h3>
+    <hr>
+    
+    <!-- Formulario -->
+    <div class="row">
+        <div class="col-md-11">
+            <app-pais-buscador 
+                    (onEnter)="buscar($event)"
+                    (onDebounce)= "sugerencias($event)"
+                    placeholder="Buscar por nombre capital ..."
+                    ></app-pais-buscador>
+        </div>
     </div>
 
+
+
+    <!-- Mensajes de aleta -->
+    <hr>
+    <div *ngIf="errorRespuesta" class="alert alert-danger" role="alert">
+        No se encontro nada con el termino "{{terminoBusqueda}}"
+        <p></p>
+        <p class="mb-0"></p>
+    </div>
+
+
+    <!-- Tabla -->
+    <div *ngIf="lista_paises.length!=0"  class="row">
+        <div class="col">
+            <app-pais-tabla [data]="lista_paises" ></app-pais-tabla>
+        </div>
+    </div>
+
 </div>
+
+
+
+
