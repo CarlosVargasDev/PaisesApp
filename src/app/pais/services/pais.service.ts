@@ -23,8 +23,12 @@ export class PaisService {
     return this.httpClient.get<Country[]>(url);
   }
 
-
-  constructor(private httpClient:HttpClient) {
-    
+  getPaisPorRegion(terminoBusqueda:string):Observable<Country[]>{
+    const url = `${this.apiUrl}/region/${terminoBusqueda}`;
+    return this.httpClient.get<Country[]>(url);
   }
+
+  constructor(private httpClient:HttpClient) {    
+  }
+
 }
